@@ -42,7 +42,7 @@ export HOSTCFLAGS := -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer
 export PERL       := perl
 
 # Location for installation
-export prefix      = /usr
+#export prefix      = /usr
 export bindir      = $(prefix)/bin
 export libdir      = $(prefix)/lib
 export mandir      = $(prefix)/man

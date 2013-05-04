@@ -175,7 +175,7 @@ $(INTERP_O): $(obj)/interp.S $(SOLIB).hash
 # Install klibc
 install-rule:
 	@echo "  INSTALL klibc to $(INSTALLROOT)$(INSTALLDIR)/$(KLIBCCROSS)lib"
-	$(Q)$(foreach f, $(LIBC) $(SOLIB) $(CRT0) $(INTERP_O), \
+	@$(foreach f, $(LIBC) $(SOLIB) $(CRT0) $(INTERP_O), \
 	  $(shell $(install-data) $(f) \
 	          $(INSTALLROOT)$(INSTALLDIR)/$(KLIBCCROSS)lib))
 	$(Q)$(install-lib) $(obj)/klibc-$(SOLIBHASH).so \
