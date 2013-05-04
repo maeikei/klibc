@@ -19,7 +19,7 @@ include $(srctree)/scripts/Kbuild.include
 
 KLIBCROSS	?= $(CROSS_COMPILE)
 export KLIBCROSS
-export CC	:= $(KLIBCROSS)gcc
+export CC	:= /opt/llvm/bin/clang
 export LD	:= $(KLIBCROSS)ld
 export AR	:= $(KLIBCROSS)ar
 export RANLIB	:= $(KLIBCROSS)ranlib
@@ -29,6 +29,9 @@ export OBJCOPY  := $(KLIBCROSS)objcopy
 export OBJDUMP  := $(KLIBCROSS)objdump
 
 NOSTDINC_FLAGS := -nostdlib -nostdinc -isystem $(shell $(CC) -print-file-name=include)
+
+CFLAGS += -I/opt/llvm/lib/clang/3.3/include/
+export CFLAGS
 
 ARCH	          := $(shell uname -m | sed -e s/i.86/i386/ -e s/parisc64/parisc/ -e s/sun4u/sparc64/ -e s/arm.*/arm/ -e s/sa110/arm/ -e s/sh.*/sh/)
 export KLIBCARCH  ?= $(ARCH)
